@@ -1,4 +1,4 @@
-package com.fse.s1.projectmanager;
+/*package com.fse.s1.projectmanager;
 
 import java.sql.Date;
 
@@ -143,3 +143,4 @@ public class TaskManagerApplicationTests {
 	}
 
 }
+*/

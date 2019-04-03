@@ -47,7 +47,7 @@ public class ParentTaskController {
 	public ResponseEntity<ParentTaskEntity> addParentTask(@RequestBody ParentTaskEntity parentTask){
 		ParentTaskEntity newParent = this.parentTaskService.addParentTask(parentTask);
 		if(newParent != null && newParent.getParentId() != 0L){
-			return ResponseEntity.ok().body(newParent);
+			return ResponseEntity.status(HttpStatus.CREATED).body(newParent);
 		}else{
 			return ResponseEntity.noContent().build();
 		}

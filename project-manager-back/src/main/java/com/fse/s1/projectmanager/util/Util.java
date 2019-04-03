@@ -21,25 +21,4 @@ public class Util {
 		return c;
 	}
 	
-	public static <C, T> T exchangeUserAndUserTo(C from, T to){
-		
-		Field[] fromFields = from.getClass().getDeclaredFields();
-		Field[] toFields = to.getClass().getDeclaredFields();
-		
-		for (Field tf : toFields) {
-			for (Field ff : fromFields) {
-				if(ff.getName().equalsIgnoreCase(tf.getName())){
-					ff.setAccessible(true);
-					tf.setAccessible(true);
-					try {
-						tf.set(to, ff.get(from));
-						break;
-					} catch (IllegalArgumentException | IllegalAccessException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
-		return to;
-	}
 }
