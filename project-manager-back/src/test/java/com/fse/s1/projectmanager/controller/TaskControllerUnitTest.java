@@ -27,9 +27,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fse.s1.projectmanager.ProjectManagerApplication;
 import com.fse.s1.projectmanager.entity.ParentTaskEntity;
-import com.fse.s1.projectmanager.entity.ProjectEntity;
 import com.fse.s1.projectmanager.entity.TaskEntity;
-import com.fse.s1.projectmanager.entity.UserEntity;
 import com.fse.s1.projectmanager.to.SearchCriteria;
 
 @RunWith(SpringRunner.class)
