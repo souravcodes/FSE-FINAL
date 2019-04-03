@@ -63,6 +63,14 @@ public class ProjectService implements IProjectService{
 	public String deleteProjects(long projectId) {
 		boolean exists = this.repo.existsById(projectId);
 		if(exists){
+			ProjectEntity p = new ProjectEntity();
+			p.setProjectId(projectId);
+			UserEntity manager = userService.getUserByProject(p);
+			if(manager != null){
+				manager.setProjectId(null);
+				userService.updateUserFromProject(manager);
+			}
+			
 			this.repo.deleteById(projectId);
 			return "success";
 		}

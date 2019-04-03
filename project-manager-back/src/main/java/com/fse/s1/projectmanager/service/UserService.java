@@ -84,7 +84,7 @@ public class UserService implements IUserService {
 			this.userRepo.deleteById(id);
 		else
 			return "User already deleted";
-		return "Successfully deleted";
+		return "success";
 	}
 
 	@Override

@@ -120,8 +120,17 @@ public class TaskService implements ITaskService{
 	@Override
 	public void deleteTask(long id){
 		boolean exists = this.taskRepository.existsById(id);
-		if(exists)
+		if(exists){
+			TaskEntity t = new TaskEntity();
+			t.setTaskId(id);
+			UserEntity user = userService.getUserByTask(t);
+			if(user != null){
+				user.setTaskId(null);
+				userService.updateUserFromTask(user);
+			}
+			
 			this.taskRepository.deleteById(id);
+		}
 	}
 	
 	private boolean parentExists(TaskEntity taskDetails){
